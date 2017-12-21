@@ -19,15 +19,14 @@ Description: Payeezy - Process Transactions
         - void
         - refund
         
-        This Rest client - Payeezy is compatible with both Python 2.x & Python 3.x
+        This Rest client - Payeezy is compatible with Python 3.x, 2.x is untested.
         Download and install Requests 2.3 from the link below which is a dependancy for Payeezy.
-        https://github.com/kennethreitz/requests
+        https://github.com/kennethreitz/requests (or `pip install requests`)
         
         
 Keywords: transaction,encode,json
 Platform: UNKNOWN
 Classifier: Programming Language :: Python
-Classifier: Programming Language :: Python :: 2
 Classifier: Programming Language :: Python :: 3
 Classifier: Development Status :: 3 - Beta
 Classifier: Environment :: Other Environment
