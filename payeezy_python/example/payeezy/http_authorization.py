@@ -11,6 +11,7 @@ import os, sys          # Standard system functions
 import time  			# Get Timestamp
 import socket           # support functions for HTTPS connections - dependancy for HTTPAdapter
 import ssl
+from binascii import b2a_hex
 
 
 try:
@@ -65,7 +66,7 @@ class PayeezyHTTPAuthorize(object):
 		self.url = url
 		self.tokenurl = tokenurl
 		# cryptographically strong random number
-		self.nonce = str(int(os.urandom(16).encode('hex'),16))
+		self.nonce = str(int(b2a_hex(os.urandom(16)),16))
 		self.timestamp = str(int(round(time.time() * 1000)))
 		self.timeout = 30 # max timeout is 30 sec
 
