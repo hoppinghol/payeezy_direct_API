@@ -4,7 +4,7 @@
 #####################################################################################################################################################
 import os, sys 
 import payeezy        # Standard system functions
-import http_authorization
+from . import http_authorization
 import json
 
 class Payeezy(object):
@@ -78,19 +78,19 @@ class Payeezy(object):
 	def makePayload(self, amount=None, currency_code=None, card_type=None, cardholder_name=None, card_number=None, card_expiry=None, card_cvv=None, description=None, transactionType=None, transactionTag=None, transactionID=None):
 
 		if amount is None:
-			raise ValueError, 'Amount cannot be nil'
+			raise ValueError('Amount cannot be nil')
 
 		if type(amount) is int:
 			amount = str(amount)
 
 		if currency_code is None:
-			raise ValueError, 'Currency code cannot be nil'
+			raise ValueError('Currency code cannot be nil')
 
 		if transactionType is None:
-			raise ValueError, 'Internal Script Error - Transaction Type is NIL'
+			raise ValueError('Internal Script Error - Transaction Type is NIL')
 
 		if currency_code.upper() != 'USD':
-			raise ValueError, 'currency code provided is not valid'
+			raise ValueError('currency code provided is not valid')
 
 		if description is None:
 			description = transactionType+'transaction for amount: '+amount
@@ -98,7 +98,7 @@ class Payeezy(object):
 		if (transactionType == ('authorize' or 'purchase')): 
 
 			if card_number is None:
-				raise ValueError, 'card number cannot be nil'
+				raise ValueError('card number cannot be nil')
 
 			if type(card_number) is int:
 				card_number = str(card_number)
@@ -107,13 +107,13 @@ class Payeezy(object):
 				cardholder_name = 'Not Provided'
 
 			if card_cvv is None:
-				raise ValueError, 'cvv number cannot be nil'
+				raise ValueError('cvv number cannot be nil')
 
 			if type(card_cvv) is int:
 				card_cvv = str(card_cvv)
 
 			if card_expiry is None:
-				raise ValueError, 'card expiration cannot be nil. It has to be in MMYY format'
+				raise ValueError('card expiration cannot be nil. It has to be in MMYY format')
 
 			if type(card_expiry) is int:
 				card_expiry = str(card_expiry)
@@ -123,10 +123,10 @@ class Payeezy(object):
 		else:
 
 			if transactionID is None:
-				raise ValueError, 'Transaction ID cannot be nil'
+				raise ValueError('Transaction ID cannot be nil')
 
 			if transactionTag is None:
-				raise ValueError, 'Transaction Tag cannot be nil'
+				raise ValueError('Transaction Tag cannot be nil')
 
 			if type(transactionTag) is int:
 				transactionTag = str(transactionTag)
@@ -458,7 +458,7 @@ def getFDTokenPayload(self,  FDtype = None, auth = None, ta_token = None, cardho
     if (transactionType == ('authorize' or 'purchase')): 
 
       if card_number is None:
-        raise ValueError, 'card number cannot be nil'
+        raise ValueError('card number cannot be nil')
 
       if type(card_number) is int:
         card_number = str(card_number)
@@ -467,13 +467,13 @@ def getFDTokenPayload(self,  FDtype = None, auth = None, ta_token = None, cardho
         cardholder_name = 'Not Provided'
 
       if card_cvv is None:
-        raise ValueError, 'cvv number cannot be nil'
+        raise ValueError('cvv number cannot be nil')
 
       if type(card_cvv) is int:
         card_cvv = str(card_cvv)
 
       if card_expiry is None:
-        raise ValueError, 'card expiration cannot be nil. It has to be in MMYY format'
+        raise ValueError('card expiration cannot be nil. It has to be in MMYY format')
 
       if type(card_expiry) is int:
         card_expiry = str(card_expiry)
