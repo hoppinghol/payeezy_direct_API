@@ -73,7 +73,7 @@ class PayeezyHTTPAuthorize(object):
 	# HMAC Generation
 	def generateHMACAuthenticationHeader(self, payload):
 		messageData = self.apikey+self.nonce+self.timestamp+self.token+payload
-		hmacInHex = hmac.new(self.apisecret, msg=messageData, digestmod=hashlib.sha256).hexdigest()
+		hmacInHex = hmac.new(self.apisecret.encode(), msg=messageData.encode(), digestmod=hashlib.sha256).hexdigest().encode()
 		return b64encode(hmacInHex)
 
 	# method to make calls for getToken 
