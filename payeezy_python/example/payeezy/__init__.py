@@ -18,11 +18,11 @@ from inspect import isclass as _isclass, ismodule as _ismodule
 _dogetattr = object.__getattribute__
 _ALLOWED_ATTRIBUTES = (
     'apikey',
-	'apisecret',
-	'token',
-	'baseURL',
-	'nonce',
-	'timestamp',
-	'tokenURL' # optional parameter for oken based transaction 
+    'apisecret',
+    'token',
+    'baseURL',
+    'nonce',
+    'timestamp',
+    'tokenURL' # optional parameter for oken based transaction 
 )
 _original_module = _sys.modules[__name__]
